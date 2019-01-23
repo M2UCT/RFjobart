@@ -75,7 +75,7 @@ adj_bitmap <- function(img.in, img.out, xpix.ex, ypix.ex, xpix.in, ypix.in) {
 #' @return A picture
 #' @export
 img_crop <- function(img.in, img.out, bound.box) {
-  system(paste("magick convert", pngs$path_png[1], "-crop", bound.box, img.out))
+  system(paste("magick convert", img.in, "-crop", bound.box, img.out))
 }
 
 
