@@ -99,7 +99,7 @@ rect_overlap <- function(
     dplyr::filter(!is.na(value)) %>%
     dplyr::left_join(table.size, by = c("Var1" = "id")) %>%
     dplyr::left_join(table.size, by = c("Var2" = "id")) %>%
-    dplyr::rename(rec1 = Var1, rec2 = var2, size1 = size.x, size2 = size.y, ovl21 = value)
+    dplyr::rename(rec1 = Var1, rec2 = Var2, size1 = size.x, size2 = size.y, ovl21 = value)
 
 
   # %>%
