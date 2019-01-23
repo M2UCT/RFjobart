@@ -99,16 +99,22 @@ rect_overlap <- function(
     dplyr::filter(!is.na(value)) %>%
     dplyr::left_join(table.size, by = c("Var1" = "id")) %>%
     dplyr::left_join(table.size, by = c("Var2" = "id")) %>%
-    dplyr::arrange(dplyr::desc(as.numeric(size.x > size.y)), dplyr::desc(size.x + size.y))
+    dplyr::rename(rec1 = Var1, rec2 = var2, size1 = size.x, size2 = size.y, ovl21 = value)
 
-  table <- tibble::tibble(
-    rec1  = table$Var1[1:(nrow(table) / 2)],
-    rec2  = table$Var2[1:(nrow(table) / 2)],
-    size1 = table$size.x[1:(nrow(table) / 2)],
-    size2 = table$size.y[1:(nrow(table) / 2)],
-    ovl21 = table$value[1:(nrow(table) / 2)],
-    ovl12 = table$value[(nrow(table) / 2 + 1):nrow(table)]
-    )
+
+  # %>%
+  #   dplyr::arrange(dplyr::desc(as.numeric(size.x > size.y)), dplyr::desc(size.x + size.y))
+  #
+  # table <- tibble::tibble(
+  #   rec1  = table$Var1[1:(nrow(table) / 2)],
+  #   rec2  = table$Var2[1:(nrow(table) / 2)],
+  #   size1 = table$size.x[1:(nrow(table) / 2)],
+  #   size2 = table$size.y[1:(nrow(table) / 2)],
+  #   ovl21 = table$value[1:(nrow(table) / 2)],
+  #   ovl12 = table$value[(nrow(table) / 2 + 1):nrow(table)]
+  #   )
+
+  gc()
 
   return(table)
 
