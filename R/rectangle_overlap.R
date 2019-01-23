@@ -31,16 +31,16 @@ pix_vec <- function(v = c(x0, y0, x1, y1, w, h), out = c("vector", "matrix")) {
 #' @param compress number of compression
 #'
 #' @return
-#' A Matrix
+#' A dataframe
 #' @export
 #'
 #' @examples
 #' rect_overlap(coord.list = list(c(2,2,5,5), c(3,3,7,7), c(2,3,6,6)), compress = 0)
 #'
 #' # check correctness
-#' a <- pix_vec(c(2,2,5,5,10))
-#' b <- pix_vec(c(3,3,7,7,10))
-#' length(which(a %in% b)) / length(a)
+#' c1 <- pix_vec(c(2,2,5,5,10))
+#' c2 <- pix_vec(c(3,3,7,7,10))
+#' length(which(c1 %in% c2)) / length(c1)
 #'
 rect_overlap <- function(
   coord.list = list(c(x01, y01, x11, y11), ..., c(x0n, y0n, x1n, y1n)), compress = 100

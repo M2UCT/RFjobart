@@ -3,3 +3,5 @@
 export(adj_bitmap)
 export(conv_bitmap)
 export(detect_rectangles)
+export(pix_vec)
+export(rect_overlap)
